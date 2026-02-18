@@ -121,13 +121,69 @@ section {
     stroke: red;
 }
 
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
 
 .home-img {
-    flex:1;
-    background-color: green;
-    width:100%;
+    flex: 1;
+    width: 100%;
     aspect-ratio: 1/1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* border */
+    padding: 5px;  
+    
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #1A1A1A;
 }
+
+
+.home-img::before {
+    content: "";
+    position: absolute;
+    /* Buat ukurannya jauh lebih besar agar putarannya menutup semua sudut */
+    width: 180%; 
+    height: 180%;
+    background: conic-gradient(from var(--angle), transparent 70%, #ff0000, #ff4d4d, transparent);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.6), 0 0 50px rgba(255, 0, 0, 0.3);
+    animation: rotate 2s linear infinite;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    filter: blur(10px);
+}
+
+/* lapisan penutup agar animasi hanya muncul di area padding */
+.home-img::after {
+    content: "";
+    position: absolute;
+    inset: 5px; 
+    background: #1A1A1A; 
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.home-img img {
+    /* gambar memenuhi area di dalam padding */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 8px;
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes rotate {
+    to { --angle: 360deg; }
+}
+
+
 /* about me */
 .about-me {
     margin-top: 10%;
@@ -340,8 +396,8 @@ section {
 .skill-grid {
     margin-top:5%;
     display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,400px));
-    gap:2rem
+    grid-template-columns: repeat(auto-fit,minmax(min(100%,250px),3fr));
+    gap:2rem;
 }
 .skill-container {
     background-color: #131313;
