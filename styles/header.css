@@ -1,3 +1,12 @@
+:root {
+    --blue: #1877f2;
+    --blue-dark: #166fe5;
+    --blue-light: #e7f3ff;
+    --text-color: #050505;
+    --text-secondary: #65676b;
+    --bg-color: #f0f2f5;
+    --white: #ffffff;
+}
 .nav-container {
     display:flex;
     justify-content: space-between;
@@ -6,6 +15,86 @@
     padding-bottom:12px;
     padding-left: 3em;
     padding-right:3em;
+}
+.sidebar {
+    display: none;
+}
+.sidebar-container {
+    height: 100%;
+    width: 0; 
+    position: fixed;
+    z-index: 1000; 
+    top: 0;
+    right: 0; 
+    background-color:#131313;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column; 
+    white-space: nowrap;
+    transition: all 0.5s ease-in-out;
+}
+.sidebar-hover {
+    display:flex;
+    align-items: center;
+    background-color: transparent;
+    width:100%;
+    aspect-ratio: 6/1;
+    position: relative; 
+    overflow: hidden;
+    cursor:pointer;
+    border-radius: 2rem;
+}
+
+.sidebar-hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%; 
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.4), 
+        transparent
+    );
+    transform: skewX(-20deg); 
+    transition: 0.7s;         
+}
+
+.sidebar-hover:hover {
+    background-color: #ff0000;
+    background-color: red;
+    color: black;
+    box-shadow: 
+        0 0 15px #ff0000, 
+        0 0 30px #ff4d4d, 
+        0 0 60px rgba(255, 0, 0, 0.5);
+    
+    transform: scale(1.05);
+}
+
+.sidebar-hover:hover::before {
+    left: 150%; 
+}
+
+.sidebar-container a {
+    padding: 0.5em 0.5em 0.5em 1em;
+    text-decoration: none;
+    font-size:120%;
+    color: white;
+    transition: 0.3s;
+}
+
+.sidebar .closebtn {
+    font-size: 36px;
+    color: white;
+}
+.content {
+    flex-grow: 1; 
+    padding: 20px;
 }
 
 .nav {
@@ -16,12 +105,12 @@
     text-decoration: none;
     color:white;
     font-weight:800;
-    font-size:16px;
+    font-size:1em;
 }
 .nav-hover {
     display:flex;
     background-color: transparent;
-    width:100px;
+    width:5rem;
     aspect-ratio: 2/1;
     justify-content: center;
     align-items: center;
@@ -64,8 +153,11 @@
     left: 150%; 
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 864px) {
     .nav{
         display:none;
+    }
+    .sidebar {
+        display:contents;
     }
 }

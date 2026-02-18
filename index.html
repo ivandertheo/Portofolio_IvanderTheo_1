@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Neonderthaw&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tilt+Neon&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
     <header id="header" class="header">
@@ -38,6 +40,28 @@
                     <a href="#footer" class="navbar-link">Contact</a>
                 </div>
             </nav>
+            <span class="sidebar" style="font-size:1.3em;cursor:pointer;color:white;" onclick="openNav()">&#9776; open</span>
+            <div id="sidebar-container" class="sidebar-container">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="sidebar-hover">
+                    <a href="#home" class="navbar-link" onclick="closeNav()">Home</a>
+                </div>
+                <div class="sidebar-hover">
+                    <a href="#about" class="navbar-link" onclick="closeNav()">About</a>
+                </div>
+                <div class="sidebar-hover">
+                    <a href="#service" class="navbar-link" onclick="closeNav()">Service</a>
+                </div>
+                <div class="sidebar-hover">
+                    <a href="#project" class="navbar-link" onclick="closeNav()">Projects</a>
+                </div>
+                <div class="sidebar-hover">
+                    <a href="#skill" class="navbar-link" onclick="closeNav()">Skills</a>
+                </div>
+                <div class="sidebar-hover">
+                    <a href="#footer" class="navbar-link" onclick="closeNav()">Contact</a>
+                </div>
+            </div>
         </div>
     </header>
     <main id="main" class="main">
@@ -353,5 +377,14 @@
             </div>
         </div>
     </footer>
+    <script>
+        function openNav() {
+        document.getElementById("sidebar-container").style.width = "40%";
+        }
+
+        function closeNav() {
+        document.getElementById("sidebar-container").style.width = "0";
+        }
+    </script>
 </body>
 </html>
