@@ -144,6 +144,9 @@ section {
     background-color: #1A1A1A;
 }
 
+.home-img:hover {
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.6), 0 0 50px rgba(255, 0, 0, 0.3);
+}
 
 .home-img::before {
     content: "";
