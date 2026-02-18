@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 section {
-    scroll-margin-top: 18vh;
+    scroll-margin-top: 14vh;
 }
 
 /* home */
@@ -19,11 +19,11 @@ section {
     gap:16px;
 }
 .home-box {
-    display:flex;
+    display:grid;
+    grid-template-columns: repeat(auto-fill,minmax(9rem,1fr));
     gap:0.5em;
 }
 .home-content {
-    width: 25%;
     aspect-ratio: 1/1;
     border: 1px solid #131313;
     border-radius:10px;
@@ -91,8 +91,9 @@ section {
     gap: 20px;
 }
 .home-connection-content {
+    margin-top:4%;
     display:flex;
-    width:7%;
+    width:6%;
     aspect-ratio: 1/1;
     border-radius: 50%;
     justify-content: center;

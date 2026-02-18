@@ -22,7 +22,10 @@ h1,h2,h3,p {
     top:0;
 }
 #main {
-    margin:5%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+    margin-top: 0.1%;
 }
 #footer {
     width:100%;
